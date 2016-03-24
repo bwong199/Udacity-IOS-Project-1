@@ -21,9 +21,13 @@ class PlayViewController: UIViewController, AVAudioPlayerDelegate {
     var audioPlayerNode: AVAudioPlayerNode!
     var audioFile:AVAudioFile!
     
+    var echoAudioPlayer:AVAudioPlayer!
     
     @IBOutlet var playButton: UIButton!
     var audioPlayer: AVAudioPlayer?
+    
+    var reverbPlayers:[AVAudioPlayer] = []
+    let N:Int = 10
     
     var rate: Float = 1.0
     
@@ -33,6 +37,14 @@ class PlayViewController: UIViewController, AVAudioPlayerDelegate {
         audioEngine = AVAudioEngine()
         audioFile = try! AVAudioFile(forReading: receivedAudio.filePathUrl)
         
+        audioPlayer = try! AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl)
+        echoAudioPlayer = try! AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl)
+        
+        
+        for _ in 0...N {
+            let temp = try! AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl)
+            reverbPlayers.append(temp)
+        }
         
         print(audioFile)
         
@@ -63,9 +75,9 @@ class PlayViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBAction func playDarthVader(sender: AnyObject) {
         playAudioWithVariablePitch(-1000)
-
+        
     }
-
+    
     
     @IBAction func playSlow(sender: AnyObject) {
         if self.audioPlayer == nil {
@@ -81,6 +93,7 @@ class PlayViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     
+
     @IBAction func playFast(sender: AnyObject) {
         if self.audioPlayer == nil {
             setUpAndPlay(2.0)
@@ -93,6 +106,39 @@ class PlayViewController: UIViewController, AVAudioPlayerDelegate {
                 setUpAndPlay(2.0)
             }
         }
+    }
+    
+    @IBAction func playEcho(sender: AnyObject) {
+        
+        audioPlayer!.stop()
+        audioPlayer!.currentTime = 0;
+        audioPlayer!.play()
+        
+        let delay:NSTimeInterval = 0.2
+        var playtime:NSTimeInterval
+        playtime = echoAudioPlayer.deviceCurrentTime + delay
+        echoAudioPlayer.stop()
+        echoAudioPlayer.currentTime = 0
+        echoAudioPlayer.volume = 0.8
+        echoAudioPlayer.playAtTime(playtime)
+        
+        
+    }
+    
+    @IBAction func playReverb(sender: AnyObject) {
+        let delay:NSTimeInterval = 0.02
+        for i in 0...N {
+            let curDelay:NSTimeInterval = delay*NSTimeInterval(i)
+            let player:AVAudioPlayer = reverbPlayers[i]
+            //M_E is e=2.718...
+            //dividing N by 2 made it sound ok for the case N=10
+            let exponent:Double = -Double(i)/Double(N/2)
+            let volume = Float(pow(Double(M_E), exponent))
+            player.volume = volume
+            player.playAtTime(player.deviceCurrentTime + curDelay)
+        }
+        
+        
     }
     
     func playAudioWithVariablePitch(pitch: Float){
@@ -118,14 +164,20 @@ class PlayViewController: UIViewController, AVAudioPlayerDelegate {
     
     func setUpAndPlay(rate: Float){
         do {
-            
+
             self.audioPlayer = try AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl)
             self.audioPlayer!.enableRate = true
+            
             self.audioPlayer!.rate = rate
             self.audioPlayer!.delegate = self
             self.audioPlayer!.play()
             self.playButton.setTitle("STOP", forState: UIControlState.Normal)
         } catch {}
+    }
+    
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+        self.playButton.setTitle("PLAY", forState: UIControlState.Normal)
+        
     }
 }
 
