@@ -12,6 +12,14 @@
 		C5E33A151CA32FF6003EED3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5E33A131CA32FF6003EED3E /* Main.storyboard */; };
 		C5E33A171CA32FF6003EED3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5E33A161CA32FF6003EED3E /* Assets.xcassets */; };
 		C5E33A1A1CA32FF6003EED3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5E33A181CA32FF6003EED3E /* LaunchScreen.storyboard */; };
+		C5E33A221CA3308B003EED3E /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E33A211CA3308B003EED3E /* PlayViewController.swift */; };
+		C5E33A241CA33362003EED3E /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E33A231CA33362003EED3E /* RecordViewController.swift */; };
+		C5E33A261CA33DD6003EED3E /* RecordedAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E33A251CA33DD6003EED3E /* RecordedAudio.swift */; };
+		C5E33A281CA341F8003EED3E /* chipmunk@2x-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E33A271CA341F8003EED3E /* chipmunk@2x-iphone.png */; };
+		C5E33A2A1CA3A968003EED3E /* darthvader@2x-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E33A291CA3A968003EED3E /* darthvader@2x-iphone.png */; };
+		C5E33A2E1CA3ACD7003EED3E /* slow@2x-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E33A2B1CA3ACD7003EED3E /* slow@2x-iphone.png */; };
+		C5E33A2F1CA3ACD7003EED3E /* stop@2x-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E33A2C1CA3ACD7003EED3E /* stop@2x-iphone.png */; };
+		C5E33A301CA3ACD7003EED3E /* fast@2x-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E33A2D1CA3ACD7003EED3E /* fast@2x-iphone.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,14 @@
 		C5E33A161CA32FF6003EED3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5E33A191CA32FF6003EED3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5E33A1B1CA32FF6003EED3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5E33A211CA3308B003EED3E /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		C5E33A231CA33362003EED3E /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		C5E33A251CA33DD6003EED3E /* RecordedAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedAudio.swift; sourceTree = "<group>"; };
+		C5E33A271CA341F8003EED3E /* chipmunk@2x-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chipmunk@2x-iphone.png"; path = "../../../../Downloads/chipmunk@2x-iphone.png"; sourceTree = "<group>"; };
+		C5E33A291CA3A968003EED3E /* darthvader@2x-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "darthvader@2x-iphone.png"; path = "../../../../Downloads/darthvader@2x-iphone.png"; sourceTree = "<group>"; };
+		C5E33A2B1CA3ACD7003EED3E /* slow@2x-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "slow@2x-iphone.png"; path = "../../../../Downloads/slow@2x-iphone.png"; sourceTree = "<group>"; };
+		C5E33A2C1CA3ACD7003EED3E /* stop@2x-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stop@2x-iphone.png"; path = "../../../../Downloads/stop@2x-iphone.png"; sourceTree = "<group>"; };
+		C5E33A2D1CA3ACD7003EED3E /* fast@2x-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fast@2x-iphone.png"; path = "../../../../Downloads/fast@2x-iphone.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +70,20 @@
 		C5E33A0E1CA32FF6003EED3E /* Pitch Perfect 2 */ = {
 			isa = PBXGroup;
 			children = (
+				C5E33A291CA3A968003EED3E /* darthvader@2x-iphone.png */,
+				C5E33A2B1CA3ACD7003EED3E /* slow@2x-iphone.png */,
+				C5E33A2C1CA3ACD7003EED3E /* stop@2x-iphone.png */,
+				C5E33A2D1CA3ACD7003EED3E /* fast@2x-iphone.png */,
+				C5E33A271CA341F8003EED3E /* chipmunk@2x-iphone.png */,
 				C5E33A0F1CA32FF6003EED3E /* AppDelegate.swift */,
 				C5E33A111CA32FF6003EED3E /* ViewController.swift */,
 				C5E33A131CA32FF6003EED3E /* Main.storyboard */,
 				C5E33A161CA32FF6003EED3E /* Assets.xcassets */,
 				C5E33A181CA32FF6003EED3E /* LaunchScreen.storyboard */,
 				C5E33A1B1CA32FF6003EED3E /* Info.plist */,
+				C5E33A211CA3308B003EED3E /* PlayViewController.swift */,
+				C5E33A231CA33362003EED3E /* RecordViewController.swift */,
+				C5E33A251CA33DD6003EED3E /* RecordedAudio.swift */,
 			);
 			path = "Pitch Perfect 2";
 			sourceTree = "<group>";
@@ -123,8 +147,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5E33A2E1CA3ACD7003EED3E /* slow@2x-iphone.png in Resources */,
 				C5E33A1A1CA32FF6003EED3E /* LaunchScreen.storyboard in Resources */,
+				C5E33A2F1CA3ACD7003EED3E /* stop@2x-iphone.png in Resources */,
+				C5E33A2A1CA3A968003EED3E /* darthvader@2x-iphone.png in Resources */,
 				C5E33A171CA32FF6003EED3E /* Assets.xcassets in Resources */,
+				C5E33A301CA3ACD7003EED3E /* fast@2x-iphone.png in Resources */,
+				C5E33A281CA341F8003EED3E /* chipmunk@2x-iphone.png in Resources */,
 				C5E33A151CA32FF6003EED3E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +166,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5E33A121CA32FF6003EED3E /* ViewController.swift in Sources */,
+				C5E33A221CA3308B003EED3E /* PlayViewController.swift in Sources */,
 				C5E33A101CA32FF6003EED3E /* AppDelegate.swift in Sources */,
+				C5E33A241CA33362003EED3E /* RecordViewController.swift in Sources */,
+				C5E33A261CA33DD6003EED3E /* RecordedAudio.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
