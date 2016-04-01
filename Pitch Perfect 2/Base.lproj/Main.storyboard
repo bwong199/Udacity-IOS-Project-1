@@ -33,18 +33,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWV-Y1-k9R">
-                                <rect key="frame" x="270" y="185" width="61" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWV-Y1-k9R">
+                                <rect key="frame" x="270" y="201" width="61" height="30"/>
                                 <state key="normal" title="RECORD"/>
                                 <connections>
                                     <action selector="recordTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s7l-tj-vps"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTv-wS-nwq">
+                                <rect key="frame" x="270" y="255" width="61" height="30"/>
+                                <state key="normal" title="STOP"/>
+                                <connections>
+                                    <action selector="stopTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ttt-nm-ZYV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FWV-Y1-k9R" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5BO-sH-jRg"/>
-                            <constraint firstItem="FWV-Y1-k9R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OqV-Dc-vhb"/>
+                            <constraint firstItem="NTv-wS-nwq" firstAttribute="top" secondItem="FWV-Y1-k9R" secondAttribute="bottom" constant="24" id="49J-eF-V7f"/>
+                            <constraint firstItem="FWV-Y1-k9R" firstAttribute="trailing" secondItem="NTv-wS-nwq" secondAttribute="trailing" id="8Ss-7L-GOO"/>
+                            <constraint firstItem="FWV-Y1-k9R" firstAttribute="leading" secondItem="NTv-wS-nwq" secondAttribute="leading" id="UHL-JA-pVk"/>
+                            <constraint firstItem="FWV-Y1-k9R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="137" id="b9Z-03-JYp"/>
+                            <constraint firstItem="FWV-Y1-k9R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sH2-XY-M90"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6sz-2O-zNx"/>

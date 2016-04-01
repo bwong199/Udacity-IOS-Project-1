@@ -58,33 +58,39 @@ class RecordViewController: UIViewController, AVAudioPlayerDelegate, AVAudioReco
     }
     
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func recordTapped(button: AnyObject) {
+        //
+        //        if self.audioRecorder!.recording {
+        //            self.audioRecorder!.stop()
+        //            button.setTitle("RECORD", forState: UIControlState.Normal)
+        //        } else {
         
-        if self.audioRecorder!.recording {
-            self.audioRecorder!.stop()
-            button.setTitle("RECORD", forState: UIControlState.Normal)
-        } else {
-            
+        if !self.audioRecorder!.recording {
             do {
                 try AVAudioSession.sharedInstance().setActive(true)
                 self.audioRecorder?.delegate = self
                 self.audioRecorder!.record()
-                button.setTitle("STOP", forState: UIControlState.Normal)
+                //                button.setTitle("STOP", forState: UIControlState.Normal)
                 
             } catch {}
             
         }
+        
+        //
+        //        }
     }
-
+    
+    @IBAction func stopTapped(button: AnyObject) {
+        if self.audioRecorder!.recording {
+            self.audioRecorder!.stop()
+            //        button.setTitle("RECORD", forState: UIControlState.Normal)
+        }
+        
+    }
+    
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         
-
-   
+        
         
         if(flag){
             recordedAudio = RecordedAudio()
@@ -93,24 +99,17 @@ class RecordViewController: UIViewController, AVAudioPlayerDelegate, AVAudioReco
             self.performSegueWithIdentifier("toPlaySegue", sender: recordedAudio)
         }else {
             print("Recorded not successful")
-
+            
         }
-
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "toPlaySegue"){
             let playViewController = segue.destinationViewController as! PlayViewController
-                playViewController.receivedAudio  = recordedAudio
+            playViewController.receivedAudio  = recordedAudio
         }
-        
-        
-       
-        
-        
-        
-        
     }
     
     
@@ -130,15 +129,12 @@ class RecordViewController: UIViewController, AVAudioPlayerDelegate, AVAudioReco
         
     }
     
-    
     func setUpAndPlay(){
         do {
             
             self.audioPlayer = try AVAudioPlayer(contentsOfURL: self.audioURL!)
             self.audioPlayer!.enableRate = true
             self.audioPlayer!.rate = self.rate
-            
-            
             self.audioPlayer!.delegate = self
             self.audioPlayer!.play()
             self.playButton.setTitle("STOP", forState: UIControlState.Normal)
@@ -147,15 +143,8 @@ class RecordViewController: UIViewController, AVAudioPlayerDelegate, AVAudioReco
     
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         self.playButton.setTitle("PLAY", forState: UIControlState.Normal)
-        
     }
-    
-    
-    
-    
-    
-    
-    
+        
 }
 
 

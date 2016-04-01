@@ -84,28 +84,30 @@ class PlayViewController: UIViewController, AVAudioPlayerDelegate {
             setUpAndPlay(0.5)
         } else {
             if self.audioPlayer!.playing {
-                self.audioPlayer!.stop()
-                self.playButton.setTitle("PLAY", forState: UIControlState.Normal)
-                
+                audioPlaying()
             } else {
                 setUpAndPlay(0.5)
             }
         }
     }
     
-
     @IBAction func playFast(sender: AnyObject) {
         if self.audioPlayer == nil {
             setUpAndPlay(2.0)
         } else {
             if self.audioPlayer!.playing {
-                self.audioPlayer!.stop()
-                self.playButton.setTitle("PLAY", forState: UIControlState.Normal)
-                
+                audioPlaying()
             } else {
                 setUpAndPlay(2.0)
             }
         }
+    }
+    
+    func audioPlaying(){
+        self.audioPlayer!.stop()
+        audioEngine.stop()
+        audioEngine.reset()
+//        self.playButton.setTitle("PLAY", forState: UIControlState.Normal)
     }
     
     @IBAction func playEcho(sender: AnyObject) {
@@ -137,8 +139,6 @@ class PlayViewController: UIViewController, AVAudioPlayerDelegate {
             player.volume = volume
             player.playAtTime(player.deviceCurrentTime + curDelay)
         }
-        
-        
     }
     
     func playAudioWithVariablePitch(pitch: Float){
@@ -164,14 +164,14 @@ class PlayViewController: UIViewController, AVAudioPlayerDelegate {
     
     func setUpAndPlay(rate: Float){
         do {
-
+            
             self.audioPlayer = try AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl)
             self.audioPlayer!.enableRate = true
             
             self.audioPlayer!.rate = rate
             self.audioPlayer!.delegate = self
             self.audioPlayer!.play()
-            self.playButton.setTitle("STOP", forState: UIControlState.Normal)
+    
         } catch {}
     }
     
