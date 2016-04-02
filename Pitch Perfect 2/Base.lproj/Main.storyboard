@@ -59,6 +59,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="6sz-2O-zNx"/>
                     <connections>
+                        <outlet property="recordButton" destination="FWV-Y1-k9R" id="WYu-al-0aI"/>
+                        <outlet property="stopButton" destination="NTv-wS-nwq" id="mO5-Ll-GdO"/>
                         <segue destination="MSk-V7-YJP" kind="show" identifier="toPlaySegue" id="dAD-3o-Lwh"/>
                     </connections>
                 </viewController>
@@ -113,7 +115,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSU-eI-dl2">
                                 <rect key="frame" x="262" y="252" width="103" height="30"/>
-                                <state key="normal" title="NORMAL PLAY"/>
+                                <state key="normal" title="PLAY"/>
                                 <connections>
                                     <action selector="playTapped:" destination="MSk-V7-YJP" eventType="touchUpInside" id="Vza-q4-c4N"/>
                                 </connections>

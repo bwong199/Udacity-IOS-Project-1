@@ -15,6 +15,9 @@ class RecordViewController: UIViewController, AVAudioPlayerDelegate, AVAudioReco
     var rate: Float = 1.0
     var audioURL : NSURL?
     
+    @IBOutlet var recordButton: UIButton!
+    @IBOutlet var stopButton: UIButton!
+    
     var recordedAudio:RecordedAudio!
     
     
@@ -24,8 +27,13 @@ class RecordViewController: UIViewController, AVAudioPlayerDelegate, AVAudioReco
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         setUpAudioRecorder()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        recordButton.enabled = true
+        stopButton.enabled = false
+
     }
     
     func setUpAudioRecorder(){
@@ -70,7 +78,11 @@ class RecordViewController: UIViewController, AVAudioPlayerDelegate, AVAudioReco
                 try AVAudioSession.sharedInstance().setActive(true)
                 self.audioRecorder?.delegate = self
                 self.audioRecorder!.record()
-                //                button.setTitle("STOP", forState: UIControlState.Normal)
+
+                // While recording, stop button is enabled, record button is disabled and record button alpha is set to 0.5
+                stopButton.enabled = true
+                recordButton.enabled = false
+                recordButton.alpha = 0.5
                 
             } catch {}
             
@@ -84,6 +96,10 @@ class RecordViewController: UIViewController, AVAudioPlayerDelegate, AVAudioReco
         if self.audioRecorder!.recording {
             self.audioRecorder!.stop()
             //        button.setTitle("RECORD", forState: UIControlState.Normal)
+            stopButton.enabled = false
+            stopButton.alpha = 0.5
+        } else {
+            
         }
         
     }
